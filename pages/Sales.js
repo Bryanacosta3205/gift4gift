@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, ScrollView, Text, View, Image, Button} from 'react-native';
+import { ScrollView } from 'react-native';
 import SaleItem from '../components/SaleItem';
 
 const Sales = () => {

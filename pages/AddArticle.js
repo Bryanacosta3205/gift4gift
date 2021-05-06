@@ -12,6 +12,7 @@ const AddArticle = ({navigation}) => {
     console.log(navigation)
   return (
     <View style={styles.wrapper}>
+     
       <View style={styles.header}>
         <Button title="Cancel" onPress={()=>navigation.goBack()} />
         <Text style={{fontSize: 17}}>New article</Text>

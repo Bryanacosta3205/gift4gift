@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View, Text, Image} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const Item = ({userName,title}) => {
+const Item = ({ userName, title, publishedDate }) => {
   return (
     <View style={styles.wrapper}>
       <View>
@@ -30,7 +30,7 @@ const Item = ({userName,title}) => {
           }}>
           <MaterialCommunityIcons name="heart" size={20} color={'red'} />
 
-          <Text style={styles.published}>Published on April 26,2021</Text>
+          <Text style={styles.published}>{ publishedDate }</Text>
         </View>
         <Text style={styles.reactions}>
           Bryan and 307 others are interested
