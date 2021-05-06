@@ -3,11 +3,12 @@ import {
   StyleSheet,
   View,
   Text,
-  Button,
   TextInput,
   TouchableOpacity,
   Image,
 } from 'react-native';
+import LogButton from '../components/Buttons/LogButton';
+import InputForm from '../components/TextFields/InputForm';
 
 const Login = ({navigation}) => {
   return (
@@ -15,25 +16,15 @@ const Login = ({navigation}) => {
       <View style={styles.logo}>
         <Image source={require('../images/logo.png')} />
       </View>
+
       <Text style={styles.title}>GIFT 4 GIFT</Text>
-      <View>
-        {/* <Text>Email</Text> */}
-        <TextInput style={styles.input} placeholder="Email" />
-        {/* <Text>Password</Text> */}
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          secureTextEntry={true}
-        />
+
+      <View style={styles.inputWrapper}>
+        <InputForm placeholder="Email" />
+        <InputForm placeholder="Password" isPassword={true} />
       </View>
 
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('G4G')}>
-        <Text style={{textAlign: 'center', color: 'white', fontWeight: 'bold'}}>
-          Log In
-        </Text>
-      </TouchableOpacity>
+      <LogButton text="Login" navigation={navigation} />
 
       <Text
         style={{color: '#2978B5', marginTop: 10}}
@@ -49,24 +40,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
-  button: {
-    backgroundColor: '#0097b9',
-    margin: 5,
-    width: 80,
-    padding: 7,
-    borderRadius: 5,
+
+  inputWrapper: {
+    alignItems: 'center',
+    width: '70%',
   },
 
-  input: {
-    
-    height: 40,
-    width: 200,
-    margin: 5,
-    borderWidth: 1,
-    padding: 10,
-    borderColor: '#b3b5ba',
-    borderRadius: 5,
-  },
   logo: {
     alignItems: 'center',
     justifyContent: 'center',

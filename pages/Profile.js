@@ -4,11 +4,9 @@ import {
   StyleSheet,
   View,
   Text,
-  TextInput,
-  Button,
   Image,
 } from 'react-native';
-import Item from './Item';
+import Item from '../components/Item';
 const Profile = () => {
   return (
     

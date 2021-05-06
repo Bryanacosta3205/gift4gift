@@ -1,13 +1,10 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { View, Text, Button, TextInput } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Login from './components/Login';
+import Login from './pages/Login';
 import Home from './components/Home';
-import Signup from './components/Signup';
-
-
+import Signup from './pages/Signup';
 
 const Stack = createStackNavigator();
 
