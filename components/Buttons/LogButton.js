@@ -18,8 +18,8 @@ LogButton.propTypes = {
 };
 
 LogButton.defaultProps = {
-    text: 'Button'
-  };
+  text: 'Button',
+};
 
 const styles = StyleSheet.create({
   button: {

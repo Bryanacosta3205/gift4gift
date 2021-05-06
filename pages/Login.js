@@ -3,8 +3,6 @@ import {
   StyleSheet,
   View,
   Text,
-  TextInput,
-  TouchableOpacity,
   Image,
 } from 'react-native';
 import LogButton from '../components/Buttons/LogButton';
@@ -43,7 +41,7 @@ const styles = StyleSheet.create({
 
   inputWrapper: {
     alignItems: 'center',
-    width: '70%',
+    width: '75%',
   },
 
   logo: {

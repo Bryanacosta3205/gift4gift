@@ -5,8 +5,8 @@ import Item from '../components/Item';
 const HomeScreen = () => {
   return (
     <ScrollView>
-      <Item />
-      <Item />
+      <Item userName={'CoffeTaste'} title={'"From Animals Into Gods"'} />
+      <Item userName={'CoffeTaste'} title={'"From Animals Into Gods"'}/>
     </ScrollView>
   );
 };

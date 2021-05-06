@@ -2,25 +2,25 @@ import React from 'react';
 
 import {StyleSheet, Text, View, Image} from 'react-native';
 
-const SaleItem = () => {
+const SaleItem = ({userName, titleWanted, offered}) => {
   return (
     <View style={styles.wrapper}>
-      <Text style={styles.title}>Assassin's Creed II</Text>
+      <Text style={styles.title}>{ titleWanted }</Text>
       <View style={styles.header}>
         <Image
           style={styles.headerImage}
           source={require('../images/profile.png')}
         />
-        <Text>CoffeTaste</Text>
+        <Text>{ userName }</Text>
       </View>
       <View>
         <Text style={{marginBottom: 10}}>
-          Offers: <Text style={styles.title}>Raw VS SmackDown 2011</Text>
+          Offers: <Text style={styles.title}> {offered} </Text>
         </Text>
         <Text>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud{' '}
+          minim veniam, quis nostrud.
         </Text>
       </View>
       <View style={styles.footer}>

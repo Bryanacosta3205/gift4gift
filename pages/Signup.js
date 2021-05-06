@@ -3,9 +3,6 @@ import {
   StyleSheet,
   View,
   Text,
-  TextInput,
-  Button,
-  TouchableOpacity,
 } from 'react-native';
 import LogButton from '../components/Buttons/LogButton';
 import InputForm from '../components/TextFields/InputForm';

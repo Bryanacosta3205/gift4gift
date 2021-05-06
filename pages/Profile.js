@@ -32,7 +32,7 @@ const Profile = () => {
         </View>
       </View>
       <ScrollView>
-      <Item/>
+      <Item userName={'CoffeTaste'} title={'"From Animals Into Gods"'}/>
     </ScrollView>
      </>
   );
