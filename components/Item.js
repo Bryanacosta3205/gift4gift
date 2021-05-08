@@ -3,6 +3,7 @@ import {StyleSheet, View, Text, Image} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Item = ({ userName, title, publishedDate }) => {
+  
   return (
     <View style={styles.wrapper}>
       <View>
@@ -12,14 +13,14 @@ const Item = ({ userName, title, publishedDate }) => {
               style={{width: 20, height: 20, marginRight: 5}}
               source={require('../images/profile.png')}
             />
-            <Text>{userName}</Text>
+            <Text style={{fontWeight:'bold',}}>{userName}</Text>
           </View>
           <Text>•••</Text>
         </View>
         <Text style={{margin: 5, color: '#1597BB', fontWeight: 'bold'}}>
           {title}
         </Text>
-        <Image source={require('../images/book.png')  } />
+        <Image source={require('../images/book.png')  } style={{width:330,height:260,borderRadius:10}} />
 {/*         <Image style={{width: 380, height: 400}} source={ {uri:'https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg'}  } />*/}
         <View
           style={{
@@ -45,9 +46,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     marginBottom: 30,
-    marginTop: 20,
+    
+    /* backgroundColor:'white', */
+   
+    
+    borderRadius:10
   },
   header: {
+    
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',

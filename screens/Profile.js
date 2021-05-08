@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, StyleSheet, View, Text, Image} from 'react-native';
+import {ScrollView} from 'react-native';
 import Item from '../components/Item';
 import ProfileHeader from '../components/ProfileHeader';
 const Profile = () => {

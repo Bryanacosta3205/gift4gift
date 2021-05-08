@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Text, TouchableOpacity, StyleSheet} from 'react-native';
 
-const LogButton = ({text, navigation}) => {
+const LogButton = ({text, onPress}) => {
   return (
-    <TouchableOpacity
-      style={styles.button}
-      onPress={() => navigation.navigate('G4G')}>
+    <TouchableOpacity style={styles.button} onPress={onPress}>
       <Text style={styles.textButton}>{text}</Text>
     </TouchableOpacity>
   );
@@ -23,10 +21,12 @@ LogButton.defaultProps = {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: '#0097b9',
+    backgroundColor: '#2b57f8',
     margin: 5,
-    width: 80,
-    padding: 7,
+    padding: 10,
+    width: 100,
+    height: 40,
+    justifyContent: 'center',
     borderRadius: 5,
   },
   textButton: {

@@ -9,15 +9,15 @@ import {
 } from 'react-native';
 
 const AddArticle = ({navigation}) => {
-    console.log(navigation)
+    
   return (
     <View style={styles.wrapper}>
      
-      <View style={styles.header}>
+      {/* <View style={styles.header}>
         <Button title="Cancel" onPress={()=>navigation.goBack()} />
         <Text style={{fontSize: 17}}>New article</Text>
         <Button title="Post" />
-      </View>
+      </View> */}
       <TouchableHighlight style={styles.imagePicker}>
         <Text style={{color:'#b3b5ba'}}>Select images</Text>
       </TouchableHighlight>
@@ -36,11 +36,11 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     alignItems: 'center',
-    marginTop: 20,
+    
     marginLeft: 20,
     marginRight: 20,
   },
-  header: {
+  /* header: {
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     borderBottomWidth:0.5,
     borderBottomColor:'#c9cbd0',
     marginBottom:20
-  },
+  }, */
   input: {
     height: 40,
     width: '100%',

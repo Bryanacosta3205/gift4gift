@@ -1,10 +1,10 @@
-import React from 'react';
+/* import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from '../pages/HomeScreen';
+import HomeScreen from '../screens/HomeScreen';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import AddArticle from '../pages/AddArticle';
-import Profile from '../pages/Profile';
-import Sales from '../pages/Sales';
+import AddArticle from '../screens/AddArticle';
+import Profile from '../screens/Profile';
+import Sales from '../screens/Sales';
 
 const Tab = createBottomTabNavigator();
 
@@ -69,3 +69,4 @@ const Home = () => {
 };
 
 export default Home;
+ */

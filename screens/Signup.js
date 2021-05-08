@@ -3,6 +3,7 @@ import {
   StyleSheet,
   View,
   Text,
+  Alert,
 } from 'react-native';
 import LogButton from '../components/Buttons/LogButton';
 import InputForm from '../components/TextFields/InputForm';
@@ -10,7 +11,7 @@ import InputForm from '../components/TextFields/InputForm';
 const Signup = ({navigation}) => {
   return (
     <View style={styles.wrapper}>
-      <Text style={{fontWeight: 'bold', margin: 10, fontSize: 16}}>
+      <Text style={{fontWeight: 'bold', margin: 10, fontSize: 24}}>
         Create an account
       </Text>
 
@@ -20,12 +21,12 @@ const Signup = ({navigation}) => {
       <InputForm placeholder="Password" isPassword={true} />
       <InputForm placeholder="Confirm password" isPassword={true} />
 
-      <LogButton text="Signup" navigation={navigation} />
+      <LogButton text="Signup" onPress={()=>navigation.navigate('G4G')} />
 
       <Text
         style={{color: '#2978B5', marginTop: 10}}
-        onPress={() => navigation.navigate('signin')}>
-        Haven't an account yet? Sign up
+        onPress={() => navigation.goBack()}>
+        Already have an account? Sign In
       </Text>
     </View>
   );
