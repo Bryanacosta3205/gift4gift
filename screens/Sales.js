@@ -4,7 +4,7 @@ import SaleItem from '../components/SaleItem';
 
 const Sales = () => {
   return (
-    <ScrollView>
+    <ScrollView >
       <SaleItem
         userName={'CoffeTaste'}
         titleWanted={"Assassin's Creed II"}

@@ -13,6 +13,7 @@ import {
   NewArticleStackScreen,
 } from './navigation/navigationStacks';
 
+
 const AuthStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -23,7 +24,7 @@ function App() {
       theme={{
         colors: {
           background: '#f5f6fc',
-          card: '#f1f6f9',
+          card: 'white',
           text: 'black',
           border: 'white',
         },

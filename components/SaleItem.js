@@ -24,7 +24,7 @@ const SaleItem = ({userName, titleWanted, offered}) => {
         </Text>
       </View>
       <View style={styles.footer}>
-        <Text style={{color: '#206A5D', fontWeight: 'bold'}}>Accept</Text>
+        <Text style={{color: '#206A5D', fontWeight: 'bold', }}>Accept</Text>
         <Text style={{color: '#810000', fontWeight: 'bold'}}>Reject</Text>
       </View>
     </View>
@@ -34,9 +34,10 @@ const SaleItem = ({userName, titleWanted, offered}) => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    marginLeft: 20,
-    marginRight: 20,
-    marginBottom: 40,
+    marginTop: 10,
+    padding: 10,
+    borderRadius: 10,
+    backgroundColor:'white'
   },
   header: {flexDirection: 'row', alignItems: 'center', marginBottom: 10},
   headerImage: {width: 20, height: 20, marginRight: 5},

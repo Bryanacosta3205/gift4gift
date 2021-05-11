@@ -5,16 +5,18 @@ import HomeScreen from '../screens/HomeScreen';
 import Sales from '../screens/Sales';
 import AddArticle from '../screens/AddArticle';
 import Profile from '../screens/Profile';
-import {Text} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
+import HeaderButton from '../components/Buttons/HeaderButton';
 
 const HomeStack = createStackNavigator();
 export const HomeStackScreen = () => {
   return (
-    <HomeStack.Navigator>
+    <HomeStack.Navigator  screenOptions={style.headerStyle} >
       <HomeStack.Screen
         name="home"
         component={HomeScreen}
-        options={{title: 'Home'}}
+        options={{title: 'Home',}}
+        
       />
     </HomeStack.Navigator>
   );
@@ -23,7 +25,7 @@ export const HomeStackScreen = () => {
  const SalesStack = createStackNavigator();
  export const SalesStackScreen = () => {
   return (
-    <SalesStack.Navigator>
+    <SalesStack.Navigator screenOptions={style.headerStyle}>
       <SalesStack.Screen
         name="sales"
         component={Sales}
@@ -36,7 +38,7 @@ export const HomeStackScreen = () => {
  const ProfileStack = createStackNavigator();
  export const ProfileStackScreen = () => {
   return (
-    <ProfileStack.Navigator>
+    <ProfileStack.Navigator screenOptions={style.headerStyle}>
       <ProfileStack.Screen
         name="profile"
         component={Profile}
@@ -49,16 +51,33 @@ export const HomeStackScreen = () => {
 const NewArticleStack = createStackNavigator();
 export const NewArticleStackScreen = ({navigation}) => {
   return (
-    <NewArticleStack.Navigator>
+    <NewArticleStack.Navigator screenOptions={{
+      
+      headerTitleStyle:{
+        fontSize:16,
+        
+      }
+    }}>
       <NewArticleStack.Screen
         name="newArticle"
         component={AddArticle}
         options={{
-          title: 'New Article',
-          headerLeft: () => <Text onPress={()=>navigation.goBack()} style={{marginLeft:20,color:'#007cf8'}}>Cancel</Text>,
-          headerRight: () => <Text style={{marginRight:20,color:'#007cf8'}}>Post</Text>,
+          title: 'New article',
+          headerLeft: () => <HeaderButton onPress={()=>navigation.goBack()} text='Cancel' /> ,
+          headerRight: () => <HeaderButton onPress={()=>navigation.goBack()} text='Save' />,
         }}
       />
     </NewArticleStack.Navigator>
   );
 };
+
+
+const style = {
+  headerStyle:{
+    headerTitleAlign:'left',
+    headerTitleStyle:{
+      fontSize:24,
+      fontWeight:'bold'
+    }
+  }
+}

@@ -20,6 +20,14 @@ const Item = ({userName, title, publishedDate}) => {
       },
       buttonIndex => {
         switch (buttonIndex) {
+          case 1:
+            Alert.alert('Delete post?','This post will be deleted',[{
+              text: "Cancel",
+              onPress: () => console.log("Cancel Pressed"),
+              style: "cancel"
+            },
+            { text: "OK", onPress: () => console.log("OK Pressed"), style:'destructive' }])
+            break;
           case 2:
             Alert.alert('Details', 'You press the details button');
             break;
@@ -65,8 +73,12 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     alignItems: 'center',
-    marginBottom: 30,
+    marginTop: 10,
+    paddingBottom: 10,
+    paddingTop: 10,
     borderRadius: 10,
+    backgroundColor:'white',
+    maxWidth:'100%'
   },
   headerWrapper: {
     flex: 1,
@@ -85,7 +97,7 @@ const styles = StyleSheet.create({
   headerUserName: {fontWeight: 'bold'},
   headerProfileImage: {width: 20, height: 20, marginRight: 5},
   title: {margin: 5, color: '#1597BB', fontWeight: 'bold'},
-  image: {width: 380, height: 270, borderRadius: 5},
+  image: {maxWidth: '100%', height: 270, },
   publishedDate: {
     fontSize: 11,
   },
