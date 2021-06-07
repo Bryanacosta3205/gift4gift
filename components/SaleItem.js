@@ -5,7 +5,7 @@ import {StyleSheet, Text, View, Image} from 'react-native';
 const SaleItem = ({userName, titleWanted, offered}) => {
   return (
     <View style={styles.wrapper}>
-      <Text style={styles.title}>{ titleWanted }</Text>
+      
       <View style={styles.header}>
         <Image
           style={styles.headerImage}
@@ -14,6 +14,7 @@ const SaleItem = ({userName, titleWanted, offered}) => {
         <Text>{ userName }</Text>
       </View>
       <View>
+      <Text style={styles.title}>{ titleWanted }</Text>
         <Text style={{marginBottom: 10}}>
           Offers: <Text style={styles.title}> {offered} </Text>
         </Text>

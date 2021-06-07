@@ -9,8 +9,11 @@ import {
   Alert,
 } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import SQLite from 'react-native-sqlite-storage';
+const db = SQLite.openDatabase({name: 'mydata'});
 
-const Item = ({userName, title, publishedDate}) => {
+const Item = ({id,userName, title, publishedDate,imageUrl}) => {
+  
   const handleMenu = () => {
     ActionSheetIOS.showActionSheetWithOptions(
       {
@@ -26,7 +29,21 @@ const Item = ({userName, title, publishedDate}) => {
               onPress: () => console.log("Cancel Pressed"),
               style: "cancel"
             },
-            { text: "OK", onPress: () => console.log("OK Pressed"), style:'destructive' }])
+            { text: "OK", onPress: () => (
+              db.transaction(tx => {
+                tx.executeSql(
+                  'DELETE FROM Article WHERE id = ?',
+                  [id],
+                  (tx, result) => {
+                    if (result.rowsAffected.length === 0) {
+                      console.log('No se actualizaron los datos. Intente de nuevo')
+                      return;
+                    }
+                  },
+                  error => console.log(error),
+                );
+              })
+            ), style:'destructive' }])
             break;
           case 2:
             Alert.alert('Details', 'You press the details button');
@@ -55,7 +72,7 @@ const Item = ({userName, title, publishedDate}) => {
           </TouchableOpacity>
         </View>
         <Text style={styles.title}>{title}</Text>
-        <Image style={styles.image} source={require('../images/book.png')} />
+        <Image style={styles.image} source={{uri:imageUrl}}  />
         {/*         <Image style={{width: 380, height: 400}} source={ {uri:'https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg'}  } />*/}
         <View style={styles.footer}>
           <MaterialCommunityIcons name="heart" size={20} color={'red'} />
@@ -97,7 +114,7 @@ const styles = StyleSheet.create({
   headerUserName: {fontWeight: 'bold'},
   headerProfileImage: {width: 20, height: 20, marginRight: 5},
   title: {margin: 5, color: '#1597BB', fontWeight: 'bold'},
-  image: {maxWidth: '100%', height: 270, },
+  image: {maxWidth: '100%', height: 270, minWidth: 380},
   publishedDate: {
     fontSize: 11,
   },

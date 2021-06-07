@@ -62,9 +62,9 @@ export const NewArticleStackScreen = ({navigation}) => {
         name="newArticle"
         component={AddArticle}
         options={{
-          title: 'New article',
+          title: 'New product',
           headerLeft: () => <HeaderButton onPress={()=>navigation.goBack()} text='Cancel' /> ,
-          headerRight: () => <HeaderButton onPress={()=>navigation.goBack()} text='Save' />,
+          
         }}
       />
     </NewArticleStack.Navigator>

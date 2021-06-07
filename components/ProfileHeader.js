@@ -21,7 +21,7 @@ const ProfileHeader = () => {
         }}>
         <View style={{alignItems: 'center'}}>
           <Text style={styles.stats}>8</Text>
-          <Text>Articles</Text>
+          <Text>Products</Text>
         </View>
         <View style={{alignItems: 'center'}}>
           <Text style={styles.stats}>37</Text>
