@@ -48,8 +48,8 @@ const HomeScreen = ({navigation}) => {
       );
       // db.transaction(function (t) {
       //   t.executeSql(
-      //     'INSERT INTO Article (id, title, details, image_url, id_user) VALUES (null,?,?,?,?)',
-      //     ['Assassins Creed II PC' ,'2nd game of assassins creed series','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXSQ8A0Mym9TSxkWEZNMdY9KQ8NlGzgZYAo8srMbEBdNWyzIkS97K1A3zh68qb_v9kMlI&usqp=CAU', 2],
+      //     'INSERT INTO User (id, username, phone, pass, image_url) VALUES (null,?,?,?,?)',
+      //     ['Bryan Acosta' ,'3123345641','password','https://avatars.githubusercontent.com/u/32991810?s=60&v=4'],
       //     function (tx, res) {
             
       //       console.log('Nota guardada satisfactoriamente');
@@ -66,7 +66,9 @@ const HomeScreen = ({navigation}) => {
         
       db.transaction(function(t) {
         
-            t.executeSql("SELECT * FROM Article",[], function(tx, res) {
+            t.executeSql(`SELECT User.username, Article.id, title, created_at, Article.image_url, User.image_url as profilePicture  FROM Article
+            left join User on User.id = Article.id_user
+            `,[], function(tx, res) {
                 let data = [];
                 for (let i = 0; i < res.rows.length; i++) {
                     data.push(res.rows.item(i));
@@ -82,14 +84,15 @@ const HomeScreen = ({navigation}) => {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       {
-        articles.map(({id,title,created_at,image_url})=>(
+        articles.map(({id,title,created_at,image_url, username,profilePicture})=>(
           <Item
         key={id}
         id={id}
-        userName={'CoffeTaste'}
+        userName={username}
         title={title}
         publishedDate={`Published on ${created_at}`}
-          imageUrl={image_url}
+        imageUrl={image_url}
+        profilePicture={profilePicture}
       />
         ))
       }

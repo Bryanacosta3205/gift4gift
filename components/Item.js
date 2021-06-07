@@ -12,7 +12,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import SQLite from 'react-native-sqlite-storage';
 const db = SQLite.openDatabase({name: 'mydata'});
 
-const Item = ({id,userName, title, publishedDate,imageUrl}) => {
+const Item = ({id,userName, title, publishedDate,imageUrl,profilePicture}) => {
   
   const handleMenu = () => {
     ActionSheetIOS.showActionSheetWithOptions(
@@ -63,7 +63,7 @@ const Item = ({id,userName, title, publishedDate,imageUrl}) => {
           <View style={styles.header}>
             <Image
               style={styles.headerProfileImage}
-              source={require('../images/profile.png')}
+              source={{uri:profilePicture}}
             />
             <Text style={styles.headerUserName}>{userName}</Text>
           </View>

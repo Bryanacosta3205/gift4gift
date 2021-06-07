@@ -19,7 +19,7 @@ const AddArticle = () => {
       db.transaction(function (t) {
         t.executeSql(
           'INSERT INTO Article (id, title, details, image_url, id_user) VALUES (null,?,?,?,?)',
-          [title ,details,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXSQ8A0Mym9TSxkWEZNMdY9KQ8NlGzgZYAo8srMbEBdNWyzIkS97K1A3zh68qb_v9kMlI&usqp=CAU', 2],
+          [title ,details,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXSQ8A0Mym9TSxkWEZNMdY9KQ8NlGzgZYAo8srMbEBdNWyzIkS97K1A3zh68qb_v9kMlI&usqp=CAU', 1],
           function (tx, res) {
             
             console.log('Nota guardada satisfactoriamente');
@@ -42,7 +42,7 @@ const AddArticle = () => {
       onChangeText={value => onChange(value, 'title')}
       value={title}
       />
-      <TextInput placeholderTextColor='#b3b5ba' style={styles.input} placeholder="Condition" />
+      
       <TextInput
         style={styles.textArea}
         multiline={true}
