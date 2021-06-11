@@ -11,6 +11,7 @@ import {
   SalesStackScreen,
   ProfileStackScreen,
   NewArticleStackScreen,
+  CommentStackScreen,
 } from './navigation/navigationStacks';
 
 
@@ -30,6 +31,7 @@ function App() {
         },
       }}>
       {isAuth ? (
+        
         <Tab.Navigator
           tabBarOptions={{
             activeTintColor: '#000000',
@@ -39,6 +41,7 @@ function App() {
               backgroundColor: '#FFFFFF',
             },
           }}>
+          
           <Tab.Screen
             name="Home"
             component={HomeStackScreen}
@@ -87,7 +90,9 @@ function App() {
               ),
             }}
           />
+
         </Tab.Navigator>
+        
       ) : (
         <AuthStack.Navigator>
           <AuthStack.Screen

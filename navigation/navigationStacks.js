@@ -7,6 +7,7 @@ import AddArticle from '../screens/AddArticle';
 import Profile from '../screens/Profile';
 import {Text, TouchableOpacity} from 'react-native';
 import HeaderButton from '../components/Buttons/HeaderButton';
+import Comment from '../screens/Comments';
 
 const HomeStack = createStackNavigator();
 export const HomeStackScreen = () => {
@@ -17,6 +18,11 @@ export const HomeStackScreen = () => {
         component={HomeScreen}
         options={{title: 'Home',}}
         
+      />
+      <HomeStack.Screen
+        name="Comments"
+        component={Comment}
+        options={{title: 'Comments',headerTitleAlign:'center',headerBackTitleVisible:false}}
       />
     </HomeStack.Navigator>
   );
@@ -47,6 +53,7 @@ export const HomeStackScreen = () => {
     </ProfileStack.Navigator>
   );
 };
+
 
 const NewArticleStack = createStackNavigator();
 export const NewArticleStackScreen = ({navigation}) => {

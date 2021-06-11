@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ScrollView} from 'react-native';
+import {Alert, ScrollView} from 'react-native';
 import SQLite from 'react-native-sqlite-storage';
 import Item from '../components/Item';
 import {CREATE_TABLES} from '../SQL/CREATE_TABLES';
@@ -79,7 +79,7 @@ const HomeScreen = ({navigation}) => {
     })
   }, [navigation]);
 
-  console.log(articles)
+  // console.log(articles)
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
@@ -93,6 +93,7 @@ const HomeScreen = ({navigation}) => {
         publishedDate={`Published on ${created_at}`}
         imageUrl={image_url}
         profilePicture={profilePicture}
+        onPress={()=>navigation.navigate('Home',{screen:'Comments'})}
       />
         ))
       }

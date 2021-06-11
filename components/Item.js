@@ -12,7 +12,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import SQLite from 'react-native-sqlite-storage';
 const db = SQLite.openDatabase({name: 'mydata'});
 
-const Item = ({id,userName, title, publishedDate,imageUrl,profilePicture}) => {
+const Item = ({onPress,id,userName, title, publishedDate,imageUrl,profilePicture}) => {
   
   const handleMenu = () => {
     ActionSheetIOS.showActionSheetWithOptions(
@@ -57,8 +57,8 @@ const Item = ({id,userName, title, publishedDate,imageUrl,profilePicture}) => {
   };
 
   return (
-    <View style={styles.wrapper}>
-      <View>
+    <View style={styles.wrapper} >
+      <View >
         <View style={styles.headerWrapper}>
           <View style={styles.header}>
             <Image
@@ -75,12 +75,10 @@ const Item = ({id,userName, title, publishedDate,imageUrl,profilePicture}) => {
         <Image style={styles.image} source={{uri:imageUrl}}  />
         {/*         <Image style={{width: 380, height: 400}} source={ {uri:'https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg'}  } />*/}
         <View style={styles.footer}>
-          <MaterialCommunityIcons name="heart" size={20} color={'red'} />
+          <MaterialCommunityIcons onPress={onPress} name="comment-outline" size={20} color={'gray'} />
           <Text style={styles.publishedDate}>{publishedDate}</Text>
         </View>
-        <Text style={styles.reactions}>
-          Bryan and 307 others are interested
-        </Text>
+       
       </View>
     </View>
   );
