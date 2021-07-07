@@ -17,7 +17,7 @@ const Carousel = () => {
     launchImageLibrary({mediaType: 'photo', quality: 0.5}, resp => {
       if (resp.didCancel) return;
       if (!resp.uri) return;
-      console.log(resp.uri);
+      console.log(resp);
       setTempURI([...tempURI, resp.uri]);
     });
   };
@@ -33,8 +33,8 @@ const Carousel = () => {
       contentContainerStyle={tempURI.length ?{height: 145,}:{width:'100%'}}
       style={styles.carousel}>
       {tempURI.length > 0 &&
-        tempURI.map(uri => (
-          <View>
+        tempURI.map((uri,i) => (
+          <View key={i} >
             <Image key={uri} style={styles.image} source={{uri: uri}} />
             <TouchableOpacity onPress={()=>handleRemoveItem(uri)} style={styles.close} >
           <MaterialCommunityIcons name="close-circle" size={20} color={'white'}  />

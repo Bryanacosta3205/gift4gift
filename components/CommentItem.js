@@ -6,9 +6,13 @@ const CommentItem = ({username,comment}) => {
         <View style={styles.container}>
         <View style={styles.header}>
         <Text style={styles.username} >{username}</Text>
-        <TouchableOpacity >
+        {
+            username==='Bryan Acosta'&&(
+                <TouchableOpacity >
             <Text>•••</Text>
           </TouchableOpacity>
+            )
+        }
         </View>
         <Text>{comment}</Text>
         </View>

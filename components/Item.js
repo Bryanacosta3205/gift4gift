@@ -12,8 +12,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import SQLite from 'react-native-sqlite-storage';
 const db = SQLite.openDatabase({name: 'mydata'});
 
-const Item = ({onPress,id,userName, title, publishedDate,imageUrl,profilePicture}) => {
-  
+const Item = ({setArticles,onPress,id,userName, title, publishedDate,imageUrl,profilePicture}) => {
+  const host = 'http://192.168.0.18:3000'
   const handleMenu = () => {
     ActionSheetIOS.showActionSheetWithOptions(
       {
@@ -30,19 +30,24 @@ const Item = ({onPress,id,userName, title, publishedDate,imageUrl,profilePicture
               style: "cancel"
             },
             { text: "OK", onPress: () => (
-              db.transaction(tx => {
-                tx.executeSql(
-                  'DELETE FROM Article WHERE id = ?',
-                  [id],
-                  (tx, result) => {
-                    if (result.rowsAffected.length === 0) {
-                      console.log('No se actualizaron los datos. Intente de nuevo')
-                      return;
-                    }
-                  },
-                  error => console.log(error),
-                );
+
+              fetch(`${host}/deletePost/${id}`,{
+                method:'DELETE',
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                },
               })
+              .then(resp => resp.json())
+              .then(data=>{
+
+                fetch(`${host}/getPosts`)
+          .then(resp => resp.json())
+          .then(({data}) => setArticles(data))
+          .catch(err => console.log(err));
+                
+              })
+              .catch(err=>console.log(err))
             ), style:'destructive' }])
             break;
           case 2:
@@ -110,7 +115,7 @@ const styles = StyleSheet.create({
   },
   header: {flexDirection: 'row', alignItems: 'center'},
   headerUserName: {fontWeight: 'bold'},
-  headerProfileImage: {width: 20, height: 20, marginRight: 5},
+  headerProfileImage: {width: 20, height: 20, marginRight: 5,borderRadius:50},
   title: {margin: 5, color: '#1597BB', fontWeight: 'bold'},
   image: {maxWidth: '100%', height: 270, minWidth: 380},
   publishedDate: {

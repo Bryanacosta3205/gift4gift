@@ -1,8 +1,31 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import {ScrollView, View} from 'react-native';
 import Item from '../components/Item';
 import ProfileHeader from '../components/ProfileHeader';
-const Profile = () => {
+const Profile = ({navigation}) => {
+
+  const host = 'http://192.168.0.18:3000';
+  const [articles, setArticles] = useState([]);
+
+  useEffect(
+    function () {
+      navigation.addListener('focus', function () {
+        
+        fetch(`${host}/getOWnPosts/1`)
+        .then(resp => resp.json())
+        .then(({data})=>{
+          setArticles(data)
+          console.log(data)
+        })
+        .catch(err=>console.log(err))
+      });
+    },
+    [navigation,articles],
+  );
+
+
+  
+
   return (
     <View style={{ height:'100%',   }}>
       <View style={{ height:130}}>
@@ -10,26 +33,25 @@ const Profile = () => {
         </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         
-        <Item
-          userName={'CoffeTaste'}
-          title={'"From Animals Into Gods"'}
-          publishedDate={'Published on April 26,2021'}
-        />
-        <Item
-          userName={'CoffeTaste'}
-          title={'"From Animals Into Gods"'}
-          publishedDate={'Published on April 26,2021'}
-        />
-        <Item
-          userName={'CoffeTaste'}
-          title={'"From Animals Into Gods"'}
-          publishedDate={'Published on April 26,2021'}
-        />
-        <Item
-          userName={'CoffeTaste'}
-          title={'"From Animals Into Gods"'}
-          publishedDate={'Published on April 26,2021'}
-        />
+        
+      {articles.map(
+        ({id, title, created_at, image_url, username, profilePicture}) => (
+          <Item
+            key={id}
+            id={id}
+            userName={username}
+            title={title}
+            publishedDate={`Published on ${created_at}`}
+            imageUrl={image_url}
+            profilePicture={profilePicture}
+            navigation={navigation}
+            setArticles={setArticles}
+            onPress={() => navigation.navigate('Home', {screen: 'Comments',params:{id}})}
+          />
+        ),
+      )}
+
+        
        
       </ScrollView>
     </View>
